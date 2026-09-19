@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EmpowerEx Clinic | Physiotherapy &amp; Movement Rehab, New Cairo</title>
+<meta name="description" content="Physiotherapy and movement rehab in New Cairo. Manual therapy and Kinetic Control at Arabella Plaza.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF3F3;
+  --surface:#FFFFFF;
+  --ink:#0E2F3A;
+  --muted:#4A6570;
+  --line:#D3E1E2;
+  --brand:#0E2F3A;
+  --on-brand:#EAF6F5;
+  --aqua:#5FD0BD;
+  --aqua-text:#106F62;
+  --amber:#F5B942;
+  --amber-ink:#0E2F3A;
+  --tint-aqua:#D9F2EC;
+  --tint-amber:#FBEFD3;
+  --shadow:0 18px 40px -24px rgba(14,47,58,.35);
+  --r-sm:16px; --r-md:26px; --r-lg:38px; --pill:999px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#08181E; --surface:#0F2831; --ink:#E6F2F2; --muted:#9FB9BF; --line:#1D3A44;
+    --brand:#123E4B; --on-brand:#EAF6F5; --aqua-text:#6FE0CD;
+    --tint-aqua:#12363A; --tint-amber:#3A3018; --shadow:0 18px 40px -24px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#08181E; --surface:#0F2831; --ink:#E6F2F2; --muted:#9FB9BF; --line:#1D3A44;
+  --brand:#123E4B; --on-brand:#EAF6F5; --aqua-text:#6FE0CD;
+  --tint-aqua:#12363A; --tint-amber:#3A3018; --shadow:0 18px 40px -24px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:"Readex Pro",system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+  font-size:1.0625rem;line-height:1.65;font-weight:400;
+  overflow-x:hidden;
+}
+:lang(ar) body,html:lang(ar) body{line-height:1.9}
+h1,h2,h3{font-weight:600;line-height:1.12;letter-spacing:-.02em}
+:lang(ar) h1,:lang(ar) h2,:lang(ar) h3{letter-spacing:0;line-height:1.35}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:var(--r-sm)}
+section[id]{scroll-margin-top:96px}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+/* Buttons */
+.btn{
+  white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  padding:.8rem 1.35rem;border-radius:var(--pill);font-weight:500;font-size:1rem;
+  border:1.5px solid transparent;cursor:pointer;line-height:1.2;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+}
+.btn:active{transform:scale(.97)}
+.btn-lg{padding:1rem 1.6rem;font-size:1.05rem}
+.btn-amber{background:var(--amber);color:var(--amber-ink)}
+.btn-amber:hover{background:#FFC95A}
+.btn-ghost{border-color:var(--line);background:var(--surface);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--aqua)}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* Nav */
+.nav-wrap{position:sticky;top:0;z-index:50;padding:14px 0 0}
+.nav{
+  width:min(1180px,100% - 24px);margin-inline:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--pill);
+  padding:.55rem .6rem .55rem 1rem;box-shadow:var(--shadow);
+}
+:lang(ar) .nav{padding:.55rem 1rem .55rem .6rem}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand svg{width:42px;height:42px;flex:none}
+.wm{display:flex;flex-direction:column;line-height:1.1}
+.wm b{font-weight:700;font-size:1.12rem;letter-spacing:-.01em}
+.wm b span{color:var(--aqua-text)}
+.wm small{font-size:.74rem;color:var(--muted);font-weight:400}
+.links{display:flex;gap:.3rem}
+.links a{padding:.55rem 1rem;border-radius:var(--pill);font-weight:400;color:var(--muted);transition:background .18s,color .18s}
+.links a:hover{background:var(--tint-aqua);color:var(--ink)}
+.nav-actions{display:flex;align-items:center;gap:.5rem}
+.lang{
+  border:1.5px solid var(--line);background:transparent;border-radius:var(--pill);
+  padding:.55rem 1rem;cursor:pointer;font-weight:500;transition:border-color .18s;
+}
+.lang:hover{border-color:var(--aqua)}
+@media (max-width:860px){.links{display:none}}
+@media (max-width:520px){.wm small{display:none}.nav-actions .btn{display:none}}
+
+/* Hero */
+.hero{
+  display:grid;grid-template-columns:1.02fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;
+  padding:clamp(36px,6vw,80px) 0 clamp(40px,6vw,72px);
+}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.5rem);max-width:12ch}
+:lang(ar) .hero h1{max-width:14ch}
+.lead{margin-top:1.4rem;max-width:34rem;font-size:1.18rem;color:var(--muted)}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
+.pills li{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--pill);
+  padding:.4rem 1rem;font-size:.92rem;color:var(--muted);
+}
+@media (max-width:900px){.hero{grid-template-columns:1fr}.hero h1{max-width:16ch}}
+
+/* Trace card (hero centrepiece) */
+.trace-card{
+  background:var(--brand);color:var(--on-brand);border-radius:var(--r-lg);
+  padding:clamp(18px,2.4vw,28px);box-shadow:var(--shadow);
+}
+.trace-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.4rem}
+.trace-top h2{font-size:1.05rem;font-weight:500;letter-spacing:0;opacity:.9}
+.readout{
+  display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);
+  border-radius:var(--pill);padding:.35rem .9rem;font-size:.9rem;font-weight:500;
+}
+.readout i{width:10px;height:10px;border-radius:50%;background:var(--amber);display:inline-block}
+.stage{background:rgba(255,255,255,.06);border-radius:var(--r-md);padding:8px}
+.stage svg{display:block;width:100%;height:auto}
+.control{margin-top:1.1rem;display:flex;align-items:center;gap:1rem}
+.control label{font-weight:500;min-width:4.2rem}
+.slider{direction:ltr;flex:1}
+.slider input{
+  -webkit-appearance:none;appearance:none;width:100%;height:14px;border-radius:var(--pill);outline-offset:6px;
+  background:linear-gradient(to right,var(--aqua) var(--p,0%),rgba(255,255,255,.2) var(--p,0%));cursor:pointer;
+}
+.slider input::-webkit-slider-thumb{
+  -webkit-appearance:none;width:32px;height:32px;border-radius:50%;background:var(--amber);
+  border:5px solid var(--brand);box-shadow:0 0 0 2px var(--amber);
+}
+.slider input::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--amber);border:5px solid var(--brand);box-shadow:0 0 0 2px var(--amber)}
+.slider input::-moz-range-track{background:transparent}
+.pct{min-width:3.2rem;text-align:end;font-weight:600;font-variant-numeric:tabular-nums}
+.hint{margin-top:.7rem;font-size:.88rem;opacity:.72}
+
+/* Sections */
+.section{padding:clamp(48px,7vw,92px) 0}
+.section-head{max-width:40rem;margin-bottom:clamp(28px,4vw,48px)}
+.section-head h2{font-size:clamp(1.9rem,3.6vw,3rem)}
+
+/* Why band */
+.why{
+  background:var(--tint-aqua);border-radius:var(--r-lg);
+  padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,60px);align-items:center;
+}
+.why h2{font-size:clamp(1.8rem,3.4vw,2.8rem)}
+.why p{font-size:1.15rem;color:var(--muted)}
+@media (max-width:800px){.why{grid-template-columns:1fr}}
+
+/* Services bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.tile{border-radius:var(--r-lg);padding:clamp(22px,3vw,34px)}
+.tile h3{font-size:1.35rem;margin:1rem 0 .5rem}
+.tile p{color:var(--muted)}
+.ico{
+  width:56px;height:56px;border-radius:20px;display:grid;place-items:center;flex:none;
+  background:var(--brand);color:var(--aqua);
+}
+.ico svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tile-a{grid-column:span 3;background:var(--brand);color:var(--on-brand);min-height:280px;display:flex;flex-direction:column;justify-content:flex-end}
+.tile-a p{color:rgba(234,246,245,.78)}
+.tile-a .ico{background:var(--amber);color:var(--amber-ink);margin-bottom:auto}
+.tile-b{grid-column:span 3;background:var(--tint-amber);min-height:280px;display:flex;flex-direction:column;justify-content:flex-end}
+.tile-b .ico{margin-bottom:auto}
+.tile-s{grid-column:span 2;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);display:flex;gap:1rem;align-items:flex-start}
+.tile-s h3{font-size:1.15rem;margin:.1rem 0 .3rem}
+.tile-s .ico{width:48px;height:48px;border-radius:18px}
+.tile-s .ico svg{width:24px;height:24px}
+@media (max-width:900px){.tile-a,.tile-b{grid-column:span 6;min-height:220px}.tile-s{grid-column:span 6}}
+
+.chips-h{margin:clamp(36px,5vw,56px) 0 1rem;font-size:1.3rem}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem}
+.chips li{background:var(--surface);border:1px solid var(--line);border-radius:var(--pill);padding:.5rem 1.15rem;font-size:.98rem}
+
+/* Method */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(22px,3vw,34px)}
+.step:nth-child(2){margin-top:28px}
+.step:nth-child(3){margin-top:56px}
+.num{
+  width:52px;height:52px;border-radius:50%;background:var(--amber);color:var(--amber-ink);
+  display:grid;place-items:center;font-weight:700;font-size:1.15rem;
+}
+.step h3{margin:1.1rem 0 .5rem;font-size:1.35rem}
+.step p{color:var(--muted)}
+@media (max-width:860px){.steps{grid-template-columns:1fr}.step:nth-child(n){margin-top:0}}
+
+/* FAQ */
+.faq{display:grid;gap:12px;max-width:46rem}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:0 1.4rem}
+.faq summary{
+  list-style:none;cursor:pointer;padding:1.15rem 0;font-weight:500;font-size:1.08rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+";flex:none;width:34px;height:34px;border-radius:50%;background:var(--tint-aqua);color:var(--aqua-text);
+  display:grid;place-items:center;font-size:1.4rem;line-height:1;transition:transform .25s ease,background .25s;
+}
+.faq details[open] summary::after{transform:rotate(45deg);background:var(--amber);color:var(--amber-ink)}
+.faq details p{padding:0 0 1.3rem;color:var(--muted);max-width:40rem}
+
+/* Visit */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.map-tile{background:var(--brand);color:var(--on-brand);border-radius:var(--r-lg);padding:8px;display:flex;flex-direction:column}
+.map-art{border-radius:var(--r-md);overflow:hidden;background:#164653;flex:1;min-height:240px}
+.map-art svg{display:block;width:100%;height:100%}
+.map-info{padding:clamp(16px,2.4vw,26px)}
+.map-info h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:.5rem}
+.map-info p{opacity:.8}
+.map-btns{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.3rem}
+.map-btns .btn-ghost{background:transparent;color:var(--on-brand);border-color:rgba(255,255,255,.3)}
+.map-btns .btn-ghost:hover{border-color:var(--aqua)}
+.compose{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(22px,3.2vw,40px)}
+.compose h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:1.4rem}
+.field{display:grid;gap:.4rem;margin-bottom:1rem}
+.field label{font-weight:500;font-size:.95rem}
+.field input,.field select{
+  width:100%;background:var(--bg);border:1.5px solid var(--line);border-radius:var(--pill);
+  padding:.85rem 1.2rem;transition:border-color .18s,background .18s;
+}
+.field input:focus,.field select:focus{outline:none;border-color:var(--aqua);background:var(--surface)}
+.field select{appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none' stroke='%23808f94' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 1.5 7 7l5.5-5.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 1.2rem center;
+}
+:lang(ar) .field select{background-position:left 1.2rem center}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.compose .btn{width:100%;margin-top:.6rem}
+@media (max-width:900px){.visit{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+
+/* Footer */
+footer{padding:36px 0 110px}
+.foot{
+  background:var(--brand);color:var(--on-brand);border-radius:var(--r-lg);
+  padding:clamp(24px,4vw,44px);display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between;
+}
+.foot p{font-size:1.25rem;font-weight:500;max-width:22rem;line-height:1.3}
+.foot-links{display:flex;flex-wrap:wrap;gap:.6rem}
+.foot-links a{border:1.5px solid rgba(255,255,255,.28);border-radius:var(--pill);padding:.6rem 1.2rem;transition:border-color .18s}
+.foot-links a:hover{border-color:var(--aqua)}
+.copy{margin-top:1.2rem;text-align:center;font-size:.88rem;color:var(--muted)}
+
+/* Mobile sticky CTA */
+.sticky{display:none}
+@media (max-width:720px){
+  .sticky{display:flex;position:fixed;inset-inline:16px;bottom:16px;z-index:60;box-shadow:0 12px 30px -8px rgba(0,0,0,.4)}
+}
+</style>
+</head>
+<body>
+
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="#top" aria-label="EmpowerEx Clinic">
+      <svg viewBox="0 0 42 42" aria-hidden="true">
+        <rect width="42" height="42" rx="15" fill="#0E2F3A"/>
+        <path d="M9 29C15 29 15 13 21 13s6 16 12 16" fill="none" stroke="#5FD0BD" stroke-width="3.6" stroke-linecap="round"/>
+        <circle cx="33" cy="29" r="3.4" fill="#F5B942"/>
+        <circle cx="9" cy="29" r="2.6" fill="#EAF6F5"/>
+      </svg>
+      <span class="wm"><b>Empower<span>Ex</span></b><small data-i="sub">Physiotherapy clinic</small></span>
+    </a>
+    <div class="links">
+      <a href="#services" data-i="nav_services">Services</a>
+      <a href="#method" data-i="nav_method">Your care</a>
+      <a href="#visit" data-i="nav_visit">Visit</a>
+    </div>
+    <div class="nav-actions">
+      <button class="lang" id="lang" type="button" aria-label="Switch language">العربية</button>
+      <a class="btn btn-amber" href="#book" data-i="nav_book">Book a visit</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top" class="wrap">
+
+  <section class="hero" aria-labelledby="h1">
+    <div>
+      <h1 id="h1" data-i="h1">Train your brain, control your body.</h1>
+      <p class="lead" data-i="lead">Physiotherapy and movement rehab in New Cairo. Hands-on manual therapy and Kinetic Control, built around how you actually move.</p>
+      <div class="cta-row">
+        <a class="btn btn-amber btn-lg" data-wa href="https://wa.me/201211115138" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.900 1.200 2.200 1.300.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.900.9c.3.1.5.2.5.3.1.2.1.8-.1 1.500Z"/></svg>
+          <span data-i="wa_btn">Book on WhatsApp</span>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="tel:+201211115138">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+          <bdi dir="ltr">0121 111 5138</bdi>
+        </a>
+      </div>
+      <ul class="pills">
+        <li data-i="p1">Manual therapy</li>
+        <li data-i="p2">Kinetic Control</li>
+        <li data-i="p3">Arabella Plaza, New Cairo</li>
+      </ul>
+    </div>
+
+    <div class="trace-card">
+      <div class="trace-top">
+        <h2 data-i="trace_title">Your movement</h2>
+        <span class="readout"><i id="dot"></i><span id="readout">Compensating</span></span>
+      </div>
+      <div class="stage">
+        <svg viewBox="0 0 560 320" role="img" aria-label="A movement path that becomes smoother as control improves">
+          <line x1="40" y1="262" x2="520" y2="262" stroke="rgba(255,255,255,.16)" stroke-width="4" stroke-linecap="round"/>
+          <path id="ideal" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"/>
+          <path id="trace" fill="none" stroke="#F5B942" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="60" cy="250" r="16" fill="#0E2F3A" stroke="#EAF6F5" stroke-width="4"/>
+          <circle id="end" cx="500" cy="250" r="16" fill="#0E2F3A" stroke="#F5B942" stroke-width="4"/>
+        </svg>
+      </div>
+      <div class="control">
+        <label for="ctrl" data-i="ctrl">Control</label>
+        <div class="slider"><input id="ctrl" type="range" min="0" max="100" value="8" aria-describedby="hint"></div>
+        <span class="pct" id="pct">8%</span>
+      </div>
+      <p class="hint" id="hint" data-i="hint">Drag to retrain the movement.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="why">
+      <h2 data-i="why_h">Pain changes how you move. We retrain the movement.</h2>
+      <p data-i="why_p">When something hurts, your brain quietly hands the work to other muscles and joints. It helps for a few days, then becomes the next problem. We find where control was lost and rebuild it.</p>
+    </div>
+  </section>
+
+  <section class="section" id="services" aria-labelledby="svc_h">
+    <div class="section-head"><h2 id="svc_h" data-i="svc_h">What we treat, and how</h2></div>
+    <div class="bento">
+      <article class="tile tile-a">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M7 12V6.500a1.500 1.500 0 0 1 3 0V11M10 10.500V5a1.500 1.500 0 0 1 3 0v5.500M13 10.500V6a1.500 1.500 0 0 1 3 0v6M16 12.500V10a1.500 1.500 0 0 1 3 0v3.500c0 4.200-2.700 7.500-6.800 7.500-3 0-4.600-1.500-6.200-4.200L4.200 13.500a1.400 1.400 0 0 1 2.400-1.400L7 13"/></svg></div>
+        <h3 data-i="svc1_h">Manual therapy</h3>
+        <p data-i="svc1_p">Skilled hands-on techniques to ease pain, free stiff joints and settle tight muscles, so you can move without guarding.</p>
+      </article>
+      <article class="tile tile-b">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 17c3-1 3-11 5-11s2 10 5 11"/></svg></div>
+        <h3 data-i="svc2_h">Kinetic Control</h3>
+        <p data-i="svc2_p">A movement assessment that shows where your body loses control, then targeted retraining until the right muscles do the right job.</p>
+      </article>
+      <article class="tile tile-s">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M13 3 6 13h5l-1 8 7-10h-5z"/></svg></div>
+        <div><h3 data-i="svc3_h">Movement and sports rehab</h3><p data-i="svc3_p">A structured return to training after strains, sprains and overuse injuries.</p></div>
+      </article>
+      <article class="tile tile-s">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.500 3 7.500 7 9 4-1.500 7-4.500 7-9V6z"/><path d="M12 9v6M9 12h6"/></svg></div>
+        <div><h3 data-i="svc4_h">After injury or surgery</h3><p data-i="svc4_p">Step-by-step recovery of strength, range of motion and confidence.</p></div>
+      </article>
+      <article class="tile tile-s">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="4" rx="2"/><rect x="8" y="9" width="8" height="4" rx="2"/><rect x="9" y="15" width="6" height="4" rx="2"/></svg></div>
+        <div><h3 data-i="svc5_h">Back, neck and posture</h3><p data-i="svc5_p">Desk-day pain, stiffness and posture habits, treated at the source.</p></div>
+      </article>
+    </div>
+
+    <h3 class="chips-h" data-i="cond_h">Common reasons people visit</h3>
+    <ul class="chips">
+      <li data-i="c1">Neck pain</li><li data-i="c2">Lower back pain</li><li data-i="c3">Shoulder pain</li>
+      <li data-i="c4">Knee pain</li><li data-i="c5">Hip and groin</li><li data-i="c6">Ankle and foot</li>
+      <li data-i="c7">Headaches from the neck</li><li data-i="c8">Muscle strains</li>
+      <li data-i="c9">Posture and desk pain</li><li data-i="c10">Recovery after surgery</li><li data-i="c11">Training injuries</li>
+    </ul>
+  </section>
+
+  <section class="section" id="method" aria-labelledby="m_h">
+    <div class="section-head"><h2 id="m_h" data-i="m_h">How your care unfolds</h2></div>
+    <ol class="steps">
+      <li class="step"><div class="num">1</div><h3 data-i="s1_h">Assess</h3><p data-i="s1_p">We listen, then watch you move. Your history and a movement screen show what is really driving the pain.</p></li>
+      <li class="step"><div class="num">2</div><h3 data-i="s2_h">Retrain</h3><p data-i="s2_p">Manual therapy settles the area. Control exercises teach it to work properly again.</p></li>
+      <li class="step"><div class="num">3</div><h3 data-i="s3_h">Return</h3><p data-i="s3_p">You progress back to work, sport and daily life with a plan that keeps the problem from coming back.</p></li>
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="faq_h" style="padding-top:0">
+    <div class="section-head"><h2 id="faq_h" data-i="faq_h">Before your first visit</h2></div>
+    <div class="faq">
+      <details><summary data-i="q1">What happens in the first session?</summary><p data-i="a1">We talk through your pain and history, assess how you move, and agree a plan with you.</p></details>
+      <details><summary data-i="q2">What should I wear?</summary><p data-i="a2">Comfortable clothes you can move in, like shorts and a t-shirt, so we can see the area we are assessing.</p></details>
+      <details><summary data-i="q3">How many sessions will I need?</summary><p data-i="a3">It depends on what the assessment finds. We tell you honestly after your first visit.</p></details>
+    </div>
+  </section>
+
+  <section class="section" id="visit" style="padding-top:0" aria-label="Visit and book">
+    <div class="visit">
+      <div class="map-tile">
+        <div class="map-art" aria-hidden="true">
+          <svg viewBox="0 0 520 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="520" height="300" fill="#164653"/>
+            <path d="M-20 210C90 190 150 120 260 130s170 60 290-20" fill="none" stroke="#1F5A69" stroke-width="34" stroke-linecap="round"/>
+            <path d="M120 -20C130 70 190 100 200 190s-30 100-20 140" fill="none" stroke="#1F5A69" stroke-width="22" stroke-linecap="round"/>
+            <path d="M380 -20C370 60 330 90 340 170s50 90 60 150" fill="none" stroke="#1B5160" stroke-width="16" stroke-linecap="round"/>
+            <rect x="40" y="40" width="60" height="44" rx="16" fill="#1A4E5C"/>
+            <rect x="410" y="200" width="70" height="50" rx="18" fill="#1A4E5C"/>
+            <rect x="240" y="216" width="80" height="46" rx="18" fill="#1A4E5C"/>
+            <circle cx="262" cy="130" r="44" fill="#5FD0BD" opacity=".18"/>
+            <circle cx="262" cy="130" r="24" fill="#5FD0BD" opacity=".3"/>
+            <path d="M262 150c-16-18-22-28-22-39a22 22 0 0 1 44 0c0 11-6 21-22 39Z" fill="#F5B942"/>
+            <circle cx="262" cy="111" r="8" fill="#0E2F3A"/>
+          </svg>
+        </div>
+        <div class="map-info">
+          <h2 data-i="v_h">Find us at Arabella Plaza</h2>
+          <p data-i="v_addr">Arabella Plaza, New Cairo.</p>
+          <div class="map-btns">
+            <a class="btn btn-amber" href="https://maps.app.goo.gl/5feT8XfUVAQxoSo78" target="_blank" rel="noopener" data-i="v_map">Open in Google Maps</a>
+            <a class="btn btn-ghost" href="tel:+201211115138"><span data-i="call">Call</span> <bdi dir="ltr">0121 111 5138</bdi></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="compose" id="book">
+        <h2 data-i="b_h">Tell us what is bothering you</h2>
+        <div class="field">
+          <label for="f-name" data-i="b_name">Your name</label>
+          <input id="f-name" type="text" autocomplete="name" data-ip="b_name_ph" placeholder="Name">
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="f-area" data-i="b_area">Where does it hurt?</label>
+            <select id="f-area">
+              <option data-i="a_neck">Neck</option><option data-i="a_back">Lower back</option>
+              <option data-i="a_shoulder">Shoulder</option><option data-i="a_knee">Knee</option>
+              <option data-i="a_hip">Hip</option><option data-i="a_ankle">Ankle or foot</option>
+              <option data-i="a_post">After surgery</option><option data-i="a_other">Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-time" data-i="b_time">Best time</label>
+            <select id="f-time">
+              <option data-i="t_morning">Morning</option><option data-i="t_afternoon">Afternoon</option>
+              <option data-i="t_evening">Evening</option><option data-i="t_any">Any time</option>
+            </select>
+          </div>
+        </div>
+        <a class="btn btn-amber btn-lg" id="send" data-wa href="https://wa.me/201211115138" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.900 1.200 2.200 1.300.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.900.9c.3.1.5.2.5.3.1.2.1.8-.1 1.500Z"/></svg>
+          <span data-i="b_send">Send on WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <p data-i="foot">Train your brain, control your body.</p>
+      <div class="foot-links">
+        <a href="https://www.instagram.com/empowerex_clinic" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://maps.app.goo.gl/5feT8XfUVAQxoSo78" target="_blank" rel="noopener" data-i="v_map">Open in Google Maps</a>
+        <a href="tel:+201211115138" dir="ltr">0121 111 5138</a>
+      </div>
+    </div>
+    <p class="copy">EmpowerEx Clinic</p>
+  </div>
+</footer>
+
+<a class="btn btn-amber btn-lg sticky" data-wa href="https://wa.me/201211115138" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.900 1.200 2.200 1.300.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.900.9c.3.1.5.2.5.3.1.2.1.8-.1 1.500Z"/></svg>
+  <span data-i="wa_btn">Book on WhatsApp</span>
+</a>
+
+<script>
+(function(){
+  var PHONE = "201211115138";
+  var I18N = {
+    en:{
+      sub:"Physiotherapy clinic", nav_services:"Services", nav_method:"Your care", nav_visit:"Visit", nav_book:"Book a visit",
+      h1:"Train your brain, control your body.",
+      lead:"Physiotherapy and movement rehab in New Cairo. Hands-on manual therapy and Kinetic Control, built around how you actually move.",
+      wa_btn:"Book on WhatsApp", call:"Call",
+      p1:"Manual therapy", p2:"Kinetic Control", p3:"Arabella Plaza, New Cairo",
+      trace_title:"Your movement", ctrl:"Control", hint:"Drag to retrain the movement.",
+      r_low:"Compensating", r_mid:"Improving", r_high:"Controlled",
+      why_h:"Pain changes how you move. We retrain the movement.",
+      why_p:"When something hurts, your brain quietly hands the work to other muscles and joints. It helps for a few days, then becomes the next problem. We find where control was lost and rebuild it.",
+      svc_h:"What we treat, and how",
+      svc1_h:"Manual therapy", svc1_p:"Skilled hands-on techniques to ease pain, free stiff joints and settle tight muscles, so you can move without guarding.",
+      svc2_h:"Kinetic Control", svc2_p:"A movement assessment that shows where your body loses control, then targeted retraining until the right muscles do the right job.",
+      svc3_h:"Movement and sports rehab", svc3_p:"A structured return to training after strains, sprains and overuse injuries.",
+      svc4_h:"After injury or surgery", svc4_p:"Step-by-step recovery of strength, range of motion and confidence.",
+      svc5_h:"Back, neck and posture", svc5_p:"Desk-day pain, stiffness and posture habits, treated at the source.",
+      cond_h:"Common reasons people visit",
+      c1:"Neck pain", c2:"Lower back pain", c3:"Shoulder pain", c4:"Knee pain", c5:"Hip and groin", c6:"Ankle and foot",
+      c7:"Headaches from the neck", c8:"Muscle strains", c9:"Posture and desk pain", c10:"Recovery after surgery", c11:"Training injuries",
+      m_h:"How your care unfolds",
+      s1_h:"Assess", s1_p:"We listen, then watch you move. Your history and a movement screen show what is really driving the pain.",
+      s2_h:"Retrain", s2_p:"Manual therapy settles the area. Control exercises teach it to work properly again.",
+      s3_h:"Return", s3_p:"You progress back to work, sport and daily life with a plan that keeps the problem from coming back.",
+      faq_h:"Before your first visit",
+      q1:"What happens in the first session?", a1:"We talk through your pain and history, assess how you move, and agree a plan with you.",
+      q2:"What should I wear?", a2:"Comfortable clothes you can move in, like shorts and a t-shirt, so we can see the area we are assessing.",
+      q3:"How many sessions will I need?", a3:"It depends on what the assessment finds. We tell you honestly after your first visit.",
+      v_h:"Find us at Arabella Plaza", v_addr:"Arabella Plaza, New Cairo.", v_map:"Open in Google Maps",
+      b_h:"Tell us what is bothering you", b_name:"Your name", b_name_ph:"Name", b_area:"Where does it hurt?", b_time:"Best time",
+      a_neck:"Neck", a_back:"Lower back", a_shoulder:"Shoulder", a_knee:"Knee", a_hip:"Hip", a_ankle:"Ankle or foot", a_post:"After surgery", a_other:"Something else",
+      t_morning:"Morning", t_afternoon:"Afternoon", t_evening:"Evening", t_any:"Any time",
+      b_send:"Send on WhatsApp", foot:"Train your brain, control your body.",
+      msg:function(n,a,t){return "Hi EmpowerEx, this is "+(n||"a new patient")+". I'd like to book a visit. Reason: "+a+". Preferred time: "+t+".";}
+    },
+    ar:{
+      sub:"عيادة علاج طبيعي", nav_services:"الخدمات", nav_method:"رحلة العلاج", nav_visit:"زيارتنا", nav_book:"احجز زيارة",
+      h1:"درّب مخّك، وتحكّم في جسمك.",
+      lead:"علاج طبيعي وتأهيل حركي في القاهرة الجديدة. علاج يدوي وKinetic Control مبنيان على طريقة حركتك الفعلية.",
+      wa_btn:"احجز عبر واتساب", call:"اتصل",
+      p1:"العلاج اليدوي", p2:"Kinetic Control", p3:"أرابيلا بلازا، القاهرة الجديدة",
+      trace_title:"حركتك", ctrl:"التحكم", hint:"اسحب لتدريب الحركة.",
+      r_low:"تعويض", r_mid:"يتحسّن", r_high:"متحكَّم فيها",
+      why_h:"الألم يغيّر طريقة حركتك. ونحن نعيد تدريبها.",
+      why_p:"عندما يؤلمك شيء، يحوّل الدماغ العمل بهدوء إلى عضلات ومفاصل أخرى. ينجح ذلك لأيام قليلة ثم يصبح المشكلة التالية. نحدد أين فُقد التحكم ونعيد بناءه.",
+      svc_h:"ماذا نعالج وكيف",
+      svc1_h:"العلاج اليدوي", svc1_p:"تقنيات يدوية متخصصة لتخفيف الألم وتحرير المفاصل المتيبّسة وإرخاء العضلات المشدودة، لتتحرك دون تصلّب.",
+      svc2_h:"Kinetic Control", svc2_p:"تقييم للحركة يكشف أين يفقد جسمك التحكم، يتبعه تدريب موجَّه حتى تؤدي العضلات الصحيحة دورها الصحيح.",
+      svc3_h:"التأهيل الحركي والرياضي", svc3_p:"عودة منظّمة إلى التمرين بعد الشد والالتواء وإصابات الإجهاد المتكرر.",
+      svc4_h:"بعد الإصابة أو الجراحة", svc4_p:"استعادة تدريجية للقوة ومدى الحركة والثقة.",
+      svc5_h:"الظهر والرقبة والوضعية", svc5_p:"آلام العمل المكتبي والتيبّس وعادات الجلوس، نعالجها من المصدر.",
+      cond_h:"أكثر أسباب الزيارة شيوعًا",
+      c1:"ألم الرقبة", c2:"ألم أسفل الظهر", c3:"ألم الكتف", c4:"ألم الركبة", c5:"الورك والفخذ", c6:"الكاحل والقدم",
+      c7:"صداع ناتج عن الرقبة", c8:"شد العضلات", c9:"الوضعية وآلام المكتب", c10:"التعافي بعد الجراحة", c11:"إصابات التمرين",
+      m_h:"كيف تسير رحلة علاجك",
+      s1_h:"نقيّم", s1_p:"نستمع أولًا ثم نراقب حركتك. تاريخك المرضي وفحص الحركة يكشفان ما يسبب الألم فعلًا.",
+      s2_h:"نعيد التدريب", s2_p:"يهدّئ العلاج اليدوي المنطقة، وتعلّمها تمارين التحكم أن تعمل بشكل صحيح من جديد.",
+      s3_h:"نعود للحياة", s3_p:"تعود تدريجيًا إلى العمل والرياضة والحياة اليومية بخطة تمنع عودة المشكلة.",
+      faq_h:"قبل زيارتك الأولى",
+      q1:"ماذا يحدث في الجلسة الأولى؟", a1:"نتحدث معك عن الألم وتاريخك، ونقيّم حركتك، ثم نتفق معك على خطة.",
+      q2:"ماذا أرتدي؟", a2:"ملابس مريحة تسمح لك بالحركة، مثل شورت وتيشيرت، لنتمكن من رؤية المنطقة التي نقيّمها.",
+      q3:"كم جلسة أحتاج؟", a3:"يعتمد ذلك على نتيجة التقييم. نخبرك بصراحة بعد زيارتك الأولى.",
+      v_h:"تجدنا في أرابيلا بلازا", v_addr:"أرابيلا بلازا، القاهرة الجديدة.", v_map:"افتح في خرائط جوجل",
+      b_h:"أخبرنا ما الذي يزعجك", b_name:"اسمك", b_name_ph:"الاسم", b_area:"أين الألم؟", b_time:"الوقت المناسب",
+      a_neck:"الرقبة", a_back:"أسفل الظهر", a_shoulder:"الكتف", a_knee:"الركبة", a_hip:"الورك", a_ankle:"الكاحل أو القدم", a_post:"بعد جراحة", a_other:"شيء آخر",
+      t_morning:"صباحًا", t_afternoon:"بعد الظهر", t_evening:"مساءً", t_any:"أي وقت",
+      b_send:"أرسل عبر واتساب", foot:"درّب مخّك، وتحكّم في جسمك.",
+      msg:function(n,a,t){return "مرحبًا EmpowerEx، أنا "+(n||"مريض جديد")+". أود حجز زيارة. السبب: "+a+". الوقت المفضل: "+t+".";}
+    }
+  };
+  var lang = "en";
+  var $ = function(s){return document.querySelector(s)};
+  var $$ = function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+
+  /* ---------- Movement trace ---------- */
+  var N = 110, X0 = 60, X1 = 500, Y0 = 250, H = 165;
+  var seed = 7;
+  function rand(){ seed = (seed * 16807) % 2147483647; return (seed / 2147483647) * 2 - 1; }
+  var R = []; for (var i = 0; i < N; i++) R.push([rand(), rand()]);
+
+  function points(c){
+    var a = Math.pow(1 - c, 1.25) * 36, out = [];
+    for (var i = 0; i < N; i++){
+      var t = i / (N - 1), env = Math.pow(Math.sin(Math.PI * t), 0.7);
+      var x = X0 + (X1 - X0) * t, y = Y0 - H * Math.sin(Math.PI * t);
+      out.push([x + R[i][0] * a * 0.7 * env, y + (R[i][1] * a + Math.sin(t * 21 + 1.1) * a * 0.55) * env]);
+    }
+    return out;
+  }
+  function toPath(p){
+    var d = "M" + p[0][0].toFixed(1) + " " + p[0][1].toFixed(1);
+    for (var i = 1; i < p.length - 1; i++){
+      var mx = (p[i][0] + p[i + 1][0]) / 2, my = (p[i][1] + p[i + 1][1]) / 2;
+      d += " Q" + p[i][0].toFixed(1) + " " + p[i][1].toFixed(1) + " " + mx.toFixed(1) + " " + my.toFixed(1);
+    }
+    var l = p[p.length - 1];
+    return d + " L" + l[0].toFixed(1) + " " + l[1].toFixed(1);
+  }
+  function mix(c){
+    var a = [245,185,66], b = [95,208,189];
+    return "rgb(" + a.map(function(v,i){return Math.round(v + (b[i]-v)*c)}).join(",") + ")";
+  }
+
+  var slider = $("#ctrl"), tracePath = $("#trace"), ideal = $("#ideal"), endDot = $("#end");
+  ideal.setAttribute("d", toPath(points(1)));
+
+  function setControl(c){
+    var col = mix(c);
+    tracePath.setAttribute("d", toPath(points(c)));
+    tracePath.setAttribute("stroke", col);
+    endDot.setAttribute("stroke", col);
+    $("#dot").style.background = col;
+    var pct = Math.round(c * 100);
+    slider.value = pct;
+    slider.style.setProperty("--p", pct + "%");
+    $("#pct").textContent = pct + "%";
+    var key = pct < 34 ? "r_low" : pct < 75 ? "r_mid" : "r_high";
+    $("#readout").textContent = I18N[lang][key];
+    slider.setAttribute("aria-valuetext", pct + "% " + I18N[lang][key]);
+  }
+
+  var raf = null;
+  function animate(from, to, ms){
+    var start = null;
+    function step(ts){
+      if (start === null) start = ts;
+      var k = Math.min((ts - start) / ms, 1);
+      var e = k < 0.5 ? 4*k*k*k : 1 - Math.pow(-2*k + 2, 3) / 2;
+      setControl(from + (to - from) * e);
+      if (k < 1) raf = requestAnimationFrame(step);
+    }
+    raf = requestAnimationFrame(step);
+  }
+  slider.addEventListener("input", function(){
+    if (raf) cancelAnimationFrame(raf);
+    setControl(slider.value / 100);
+  });
+  slider.addEventListener("pointerdown", function(){ if (raf) cancelAnimationFrame(raf); });
+
+  /* ---------- Language ---------- */
+  function waLink(){
+    var d = I18N[lang];
+    var name = $("#f-name").value.trim();
+    var area = $("#f-area").selectedOptions[0].textContent;
+    var time = $("#f-time").selectedOptions[0].textContent;
+    return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(d.msg(name, area, time));
+  }
+  function refreshWa(){
+    var generic = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(lang === "ar" ? "مرحبًا EmpowerEx، أود الاستفسار عن حجز زيارة." : "Hi EmpowerEx, I'd like to ask about booking a visit.");
+    $$("[data-wa]").forEach(function(a){ a.href = generic; });
+    $("#send").href = waLink();
+  }
+  function applyLang(l){
+    lang = l;
+    var d = I18N[l];
+    document.documentElement.lang = l;
+    document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+    $$("[data-i]").forEach(function(el){ if (d[el.dataset.i] !== undefined) el.textContent = d[el.dataset.i]; });
+    $$("[data-ip]").forEach(function(el){ el.placeholder = d[el.dataset.ip]; });
+    $("#lang").textContent = l === "ar" ? "English" : "العربية";
+    setControl(slider.value / 100);
+    refreshWa();
+    try { localStorage.setItem("empowerex-lang", l); } catch(e){}
+  }
+  $("#lang").addEventListener("click", function(){ applyLang(lang === "en" ? "ar" : "en"); });
+  ["#f-name","#f-area","#f-time"].forEach(function(s){
+    $(s).addEventListener("input", refreshWa);
+    $(s).addEventListener("change", refreshWa);
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem("empowerex-lang"); } catch(e){}
+  applyLang(saved === "ar" ? "ar" : "en");
+
+  /* One orchestrated moment: the trace settles from shaky to controlled on load */
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce){ setControl(1); }
+  else { setControl(0.06); setTimeout(function(){ animate(0.06, 1, 3000); }, 500); }
+})();
+</script>
+</body>
+</html>
